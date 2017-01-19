@@ -2,24 +2,43 @@
 wget https://files.magerun.net/n98-magerun.phar
 
 1. Only download
-./n98-magerun.phar install \
---only-download \
---magentoVersionByName="magento-mirror-1.9.3.1" \
---installationFolder="magento"
+./n98-magerun.phar install --only-download --magentoVersionByName="magento-mirror-1.9.3.1" --installationFolder="magento"
 
-2. Fix setup script if needed
+2. Fix db setup script if greater than MySQL 5.6 and not magento version 1.9.3.1
+Line 59 of the file app/code/core/Mage/Install/Model/Installer/Db/Mysql4.php
+
+Replace:
+
+public function supportEngine()
+{
+   $variables  = $this->_getConnection()
+      ->fetchPairs('SHOW VARIABLES');
+   return (!isset($variables['have_innodb']) || $variables['have_innodb'] != 'YES') ? false : true;
+}
+
+with this:
+
+public function supportEngine()
+{
+      $variables  = $this->_getConnection()
+         ->fetchPairs('SHOW ENGINES');
+      return (isset($variables['InnoDB']) && $variables['InnoDB'] != 'NO');
+}
+
+3. create ./n98-magerun.yaml
+commands:
+  N98\Magento\Command\Installer\InstallCommand:
+    installation:
+      defaults:
+        currency: USD
+        admin_username: myadmin
+        admin_firstname: Firstname
+        admin_lastname: Lastname
+        admin_password: mydefaultSecret
+        admin_email: defaultemail@example.com
 
 3. Install Magento
-./n98-magerun.phar install \
---dbHost="localhost" \
---dbUser="root" \
---dbPass="mypassword" \
---dbName="mydatabase" \
---installSampleData=yes \
---useDefaultConfigParams=yes \
---magentoVersionByName="magento-mirror-1.9.3.1" \
---installationFolder="magento" \
---baseUrl="http://mage.mydomain.com/"
+./n98-magerun.phar install --noDownload --forceUseDb --dbHost="localhost" --dbUser="root" --dbPass="mypassword" --dbName="mydatabase" --installSampleData=yes --useDefaultConfigParams=no --magentoVersionByName="magento-mirror-1.9.3.1" --installationFolder="magento" --baseUrl="http://mage.mydomain.com/"
 
 
 ========================
