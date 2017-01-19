@@ -30,7 +30,7 @@ public function supportEngine()
       return (isset($variables['InnoDB']) && $variables['InnoDB'] != 'NO');
 }
 
-3. create ./n98-magerun.yaml
+3. create ./n98-magerun.yaml if needed
 
 commands:
   N98\Magento\Command\Installer\InstallCommand:
