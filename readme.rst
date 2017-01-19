@@ -31,6 +31,7 @@ public function supportEngine()
 }
 
 3. create ./n98-magerun.yaml
+
 commands:
   N98\Magento\Command\Installer\InstallCommand:
     installation:
@@ -43,6 +44,7 @@ commands:
         admin_email: defaultemail@example.com
 
 3. Install Magento
+
 ./n98-magerun.phar install --noDownload --forceUseDb --dbHost="localhost" --dbUser="root" --dbPass="mypassword" --dbName="mydatabase" --installSampleData=yes --useDefaultConfigParams=no --magentoVersionByName="magento-mirror-1.9.3.1" --installationFolder="magento" --baseUrl="http://mage.mydomain.com/"
 
 
