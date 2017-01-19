@@ -1,8 +1,9 @@
-0. Get n98-magerun  
+0. Get n98-magerun.
+
 wget https://files.magerun.net/n98-magerun.phar
 
 1. Only download
-| ./n98-magerun.phar install --only-download --magentoVersionByName="magento-mirror-1.9.3.1" --installationFolder="magento"
+./n98-magerun.phar install --only-download --magentoVersionByName="magento-mirror-1.9.3.1" --installationFolder="magento"
 
 2. Fix db setup script if greater than MySQL 5.6 and not magento version 1.9.3.1
 ** MySQL 5.6 removed the have_innodb variable **
