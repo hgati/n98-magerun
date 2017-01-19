@@ -1,5 +1,4 @@
 0. Get n98-magerun.
-
 wget https://files.magerun.net/n98-magerun.phar
 
 1. Only download
