@@ -1548,6 +1548,38 @@ the given database.
 
 See it in action: http://youtu.be/WU-CbJ86eQc
 
+Usage:
+  install [options]
+
+Options:
+      --magentoVersion[=MAGENTOVERSION]                  Magento version
+      --magentoVersionByName[=MAGENTOVERSIONBYNAME]      Magento version name instead of order number
+      --installationFolder[=INSTALLATIONFOLDER]          Installation folder
+      --dbHost[=DBHOST]                                  Database host
+      --dbUser[=DBUSER]                                  Database user
+      --dbPass[=DBPASS]                                  Database password
+      --dbName[=DBNAME]                                  Database name
+      --dbPort[=DBPORT]                                  Database port [default: 3306]
+      --dbPrefix[=DBPREFIX]                              Table prefix [default: ""]
+      --installSampleData[=INSTALLSAMPLEDATA]            Install sample data
+      --useDefaultConfigParams[=USEDEFAULTCONFIGPARAMS]  Use default installation parameters defined in the yaml file
+      --baseUrl[=BASEURL]                                Installation base url
+      --replaceHtaccessFile[=REPLACEHTACCESSFILE]        Generate htaccess file (for non vhost environment)
+      --noDownload                                       If set skips download step. Used when installationFolder is already                                                                                                                                                    a Magento installation that has to be installed on the given database.
+      --only-download                                    Downloads (and extracts) source code
+      --forceUseDb                                       If --noDownload passed, force to use given database if it already e                                                                                                                                                   xists.
+  -h, --help                                             Display this help message
+  -q, --quiet                                            Do not output any message
+  -V, --version                                          Display this application version
+      --ansi                                             Force ANSI output
+      --no-ansi                                          Disable ANSI output
+  -n, --no-interaction                                   Do not ask any interactive question
+      --root-dir[=ROOT-DIR]                              Force magento root dir. No auto detection
+      --skip-config                                      Do not load any custom config.
+      --skip-root-check                                  Do not check if n98-magerun runs as root
+  -v|vv|vvv, --verbose                                   Increase the verbosity of messages: 1 for normal output, 2 for more                                                                                                                                            verbose output and 3 for debug
+
+
 
 Magento Uninstaller
 """""""""""""""""""
@@ -1751,7 +1783,9 @@ Add your repo. The keys in the config file follow the composer package structure
 Example::
 
     commands:
-      N98\Magento\Command\Installer\InstallCommand:
+      N98\Magento\Command\
+      
+      \InstallCommand:
         magento-packages:
           - name: my-magento-git-repository
             version: 1.x.x.x
