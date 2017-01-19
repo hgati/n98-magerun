@@ -1541,7 +1541,7 @@ Example of an unattended Magento CE 1.7.0.2 installation:
 
 .. code-block:: sh
 
-   $ n98-magerun.phar install --dbHost="localhost" --dbUser="mydbuser" --dbPass="mysecret" --dbName="magentodb" --installSampleData=yes --useDefaultConfigParams=yes --magentoVersionByName="magento-ce-1.7.0.2" --installationFolder="magento" --baseUrl="http://magento.localdomain/"
+   $ n98-magerun.phar install --dbHost="localhost" --dbUser="mydbuser" --dbPass="mysecret" --dbName="magentodb" --installSampleData=yes --useDefaultConfigParams=yes --magentoVersionByName="magento-mirror-1.7.0.2" --installationFolder="magento" --baseUrl="http://magento.localdomain/"
 
 Additionally, with --noDownload option you can install Magento working copy already stored in --installationFolder on
 the given database.
