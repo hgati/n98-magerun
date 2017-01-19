@@ -1,3 +1,27 @@
+0. Get n98-magerun
+wget https://files.magerun.net/n98-magerun.phar
+
+1. Only download
+./n98-magerun.phar install \
+--only-download \
+--magentoVersionByName="magento-mirror-1.9.3.1" \
+--installationFolder="magento"
+
+2. Fix setup script if needed
+
+3. Install Magento
+./n98-magerun.phar install \
+--dbHost="localhost" \
+--dbUser="root" \
+--dbPass="mypassword" \
+--dbName="mydatabase" \
+--installSampleData=yes \
+--useDefaultConfigParams=yes \
+--magentoVersionByName="magento-mirror-1.9.3.1" \
+--installationFolder="magento" \
+--baseUrl="http://mage.mydomain.com/"
+
+
 ========================
 netz98 magerun CLI tools
 ========================
